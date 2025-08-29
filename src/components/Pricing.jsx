@@ -62,7 +62,7 @@ const PricingSection = () => {
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Free Plan */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+          <div className="rounded-2xl p-8 shadow-sm border border-gray-100" style={{backgroundColor: '#f8f9fa'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -129,7 +129,7 @@ const PricingSection = () => {
           </div>
 
           {/* Pro Plan */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 relative">
+          <div className="rounded-2xl p-8 shadow-sm border border-gray-100 relative" style={{backgroundColor: '#f8f9fa'}}>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center">
@@ -202,7 +202,7 @@ const PricingSection = () => {
           </div>
 
           {/* Ultimate Plan */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+          <div className="rounded-2xl p-8 shadow-sm border border-gray-100" style={{backgroundColor: '#f8f9fa'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

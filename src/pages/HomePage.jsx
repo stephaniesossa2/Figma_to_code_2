@@ -1,7 +1,19 @@
-import React from 'react';
-import { Search, Bell, ChevronDown, TrendingUp, CreditCard, ArrowUpRight, DollarSign, Paperclip, Home, Activity, FileText, Package, Wallet, MoreHorizontal, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Search, Bell, ChevronDown, TrendingUp, CreditCard, ArrowUpRight, DollarSign, Paperclip, Home, Activity, FileText, Package, Wallet, MoreHorizontal, ChevronLeft, ChevronRight, Check, BarChart3, Mail, Users, Settings, HelpCircle, Folder } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+// Import des composants
+import SuccessStories1 from '../components/SucessStories1';
+import SuccessStories2 from '../components/SucessStories2';
+import Testimonials from '../components/Testimonials';
+import Pricing from '../components/Pricing';
+import CallToAction from '../components/CallToAction';
+import Footer from '../components/Footer';
 
 const SpendInLanding = () => {
+  const [benefitDropdownOpen, setBenefitDropdownOpen] = useState(false);
+  const [howItWorkDropdownOpen, setHowItWorkDropdownOpen] = useState(false);
+
   return (
     <div className="min-h-screen text-white bg-[#0b0d14]">
       {/* Header */}
@@ -16,8 +28,74 @@ const SpendInLanding = () => {
               <span>Products</span>
               <ChevronDown className="w-4 h-4" />
             </div>
-            <span className="hover:text-white transition-colors">Benefit</span>
-            <span className="hover:text-white transition-colors">How it Works</span>
+                         <div className="relative">
+               <span 
+                 className="hover:text-white transition-colors cursor-pointer"
+                 onClick={(e) => {
+                   e.stopPropagation();
+                   setBenefitDropdownOpen(!benefitDropdownOpen);
+                   setHowItWorkDropdownOpen(false); // Ferme l'autre menu
+                 }}
+               >
+                 Benefit
+               </span>
+                               {benefitDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[150px] z-50">
+                    <button 
+                      className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
+                      onClick={() => {
+                        setBenefitDropdownOpen(false);
+                        document.getElementById('benefit1').scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      Benefit 1
+                    </button>
+                    <button 
+                      className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
+                      onClick={() => {
+                        setBenefitDropdownOpen(false);
+                        document.getElementById('benefit2').scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      Benefit 2
+                    </button>
+                  </div>
+                )}
+             </div>
+                         <div className="relative">
+               <span 
+                 className="hover:text-white transition-colors cursor-pointer"
+                 onClick={(e) => {
+                   e.stopPropagation();
+                   setHowItWorkDropdownOpen(!howItWorkDropdownOpen);
+                   setBenefitDropdownOpen(false); // Ferme l'autre menu
+                 }}
+               >
+                 How it Works
+               </span>
+                               {howItWorkDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[150px] z-50">
+                    <button 
+                      className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
+                      onClick={() => {
+                        setHowItWorkDropdownOpen(false);
+                        document.getElementById('howitwork1').scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      How it Works 1
+                    </button>
+                    <button 
+                      className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
+                      onClick={() => {
+                        setHowItWorkDropdownOpen(false);
+                        document.getElementById('howitwork2').scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      How it Works 2
+                    </button>
+                  </div>
+                )}
+             </div>
             <span className="hover:text-white transition-colors">Pricing</span>
             <div className="flex items-center gap-1 hover:text-white transition-colors">
               <span>Company</span>
@@ -373,10 +451,847 @@ const SpendInLanding = () => {
               </div>
             </div>
           </div>
+                 </div>
+       </main>
+
+       {/* Benefit 1 Section */}
+       <section id="benefit1" className="min-h-screen bg-gray-50 p-12">
+         <div className="max-w-7xl mx-auto">
+           {/* Header Section */}
+           <div className="mb-16">
+             <p className="text-purple-600 font-medium mb-4 text-sm tracking-wide">
+               WHY USE SPEND.IN
+             </p>
+             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+               <div>
+                 <h1 className="text-5xl font-bold text-black leading-tight mb-0">
+                   Easy, Simple,<br />
+                   Affordable
+                 </h1>
+               </div>
+               <div className="lg:pt-4">
+                 <p className="text-gray-500 text-lg leading-relaxed">
+                   Our platform helps your business in managing expenses. These are some of the reasons why you should use our platform in managing business finances.
+                 </p>
+               </div>
+             </div>
+           </div>
+
+           {/* Features Section - Three Columns */}
+           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+             
+             {/* Feature 1: Automatic Invoice Payment */}
+             <div className="space-y-6">
+               <div className="bg-gray-100 rounded-2xl p-4 h-80">
+                 {/* Invoice Document Mockup */}
+                 <div className="bg-white rounded-lg shadow-sm p-3 h-full relative text-xs">
+                   {/* Header with Logo and Verified */}
+                   <div className="flex justify-between items-center mb-3">
+                     <div className="flex items-center space-x-1">
+                       <div className="w-4 h-4 bg-gray-800 rounded-sm flex items-center justify-center">
+                         <span className="text-white font-bold text-xs">S</span>
+                       </div>
+                       <span className="font-medium text-xs text-gray-800">Spend.In</span>
+                     </div>
+                     
+                     <div className="text-center">
+                       <span className="text-gray-500 text-xs">INVOICE</span>
+                     </div>
+                     
+                     <div className="flex items-center space-x-1 bg-green-500 text-white rounded-full px-2 py-0.5">
+                       <div className="w-2.5 h-2.5 bg-white rounded-full flex items-center justify-center">
+                         <svg width="4" height="3" viewBox="0 0 4 3" fill="none">
+                           <path d="M0.5 1.5L1.5 2.5L3.5 0.5" stroke="#10B981" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round"/>
+                         </svg>
+                       </div>
+                       <span className="text-xs font-medium">Verified</span>
+                     </div>
+                   </div>
+                   
+                   {/* Invoice Content - Two Columns */}
+                   <div className="grid grid-cols-2 gap-3 mb-3">
+                     {/* Left Column - Sender */}
+                     <div className="space-y-0.5">
+                       <div className="font-semibold text-gray-800 text-xs">Jimmy Dean</div>
+                       <div className="text-gray-600 text-xs">123 Main Street</div>
+                       <div className="text-gray-600 text-xs">New York, NY 10001</div>
+                       <div className="text-gray-600 text-xs">jimmy.dean@email.com</div>
+                       <div className="text-gray-600 text-xs">+1 (555) 123-4567</div>
+                     </div>
+                     
+                     {/* Right Column - Recipient */}
+                     <div className="space-y-0.5">
+                       <div className="font-semibold text-gray-800 text-xs">Company Name</div>
+                       <div className="text-gray-600 text-xs">456 Business Ave</div>
+                       <div className="text-gray-600 text-xs">Los Angeles, CA 90210</div>
+                       <div className="text-gray-600 text-xs">billing@company.com</div>
+                     </div>
+                   </div>
+                   
+                   {/* Invoice Details - Two Columns */}
+                   <div className="grid grid-cols-2 gap-3 mb-3">
+                     <div className="space-y-0.5">
+                       <div className="text-gray-800 text-xs">Invoice Date: July 10th, 2023</div>
+                       <div className="text-gray-800 text-xs">Invoice No.: INV-001</div>
+                     </div>
+                     <div className="space-y-0.5">
+                       <div className="text-gray-800 text-xs">Due Date: Sep 10th, 2023</div>
+                     </div>
+                   </div>
+                   
+                   {/* Table Header */}
+                   <div className="grid grid-cols-4 gap-1 mb-1 text-xs font-medium text-gray-700 border-b border-gray-200 pb-0.5">
+                     <div className="text-xs">Product/Lab Code</div>
+                     <div className="text-center text-xs">Qty</div>
+                     <div className="text-center text-xs">Unit Price</div>
+                     <div className="text-right text-xs">Amount</div>
+                   </div>
+                   
+                   {/* Table Row */}
+                   <div className="grid grid-cols-4 gap-1 mb-3 text-xs">
+                     <div className="text-gray-800 text-xs">Product A</div>
+                     <div className="text-center text-gray-600 text-xs">1</div>
+                     <div className="text-center text-gray-600 text-xs">300</div>
+                     <div className="text-right text-gray-800 text-xs">300.00</div>
+                   </div>
+                   
+                   {/* Totals - Right aligned */}
+                   <div className="absolute bottom-4 right-3 text-xs">
+                     <div className="space-y-0.5 text-right">
+                       <div className="flex justify-between w-16">
+                         <span className="text-gray-600 text-xs">Subtotal:</span>
+                         <span className="text-gray-800 text-xs">300.00</span>
+                       </div>
+                       <div className="flex justify-between w-16 font-semibold">
+                         <span className="text-gray-800 text-xs">Total:</span>
+                         <span className="text-gray-800 text-xs">300.00</span>
+                       </div>
+                     </div>
+                   </div>
+                   
+                   {/* Signature - Bottom left */}
+                   <div className="absolute bottom-1 left-3">
+                     <span className="text-gray-400 italic text-xs">*Signature: [?]</span>
+                   </div>
+                 </div>
+               </div>
+               
+               <div>
+                 <h3 className="text-2xl font-bold text-black mb-4">
+                   Automatic Invoice Payment
+                 </h3>
+                 <p className="text-gray-500 leading-relaxed">
+                   No need to pay manually, we provide automatic invoice payment service! Set a payment schedule and you're done, it's that easy!
+                 </p>
+               </div>
+             </div>
+
+             {/* Feature 2: Clear Payment History */}
+             <div className="space-y-6">
+               <div className="bg-gray-100 rounded-2xl p-6 h-80">
+                 <div className="bg-white rounded-lg h-full p-4">
+                   {/* Date Header */}
+                   <div className="flex items-center justify-between mb-6">
+                     <div className="flex items-center space-x-2">
+                       <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                       </svg>
+                       <span className="text-sm text-gray-700">1 Jan - 1 Feb 2022</span>
+                     </div>
+                   </div>
+                   
+                   {/* Table Headers */}
+                   <div className="flex justify-between items-center mb-4 text-xs text-gray-500">
+                     <div className="flex items-center space-x-1">
+                       <span>Amount</span>
+                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                       </svg>
+                     </div>
+                     <div className="flex items-center space-x-1">
+                       <span>Status</span>
+                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                       </svg>
+                     </div>
+                   </div>
+                   
+                   {/* Payment Entries */}
+                   <div className="space-y-4">
+                     <div className="flex justify-between items-center">
+                       <span className="text-lg font-bold text-black">$2,000.00</span>
+                       <div className="flex items-center space-x-2">
+                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                         <span className="text-sm text-gray-600">Completed</span>
+                       </div>
+                     </div>
+                     
+                     <div className="flex justify-between items-center">
+                       <span className="text-lg font-bold text-black">$2,000.00</span>
+                       <div className="flex items-center space-x-2">
+                         <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                         <span className="text-sm text-gray-600">Pending</span>
+                       </div>
+                     </div>
+                     
+                     <div className="flex justify-between items-center">
+                       <span className="text-lg font-bold text-black">$2,000.00</span>
+                       <div className="flex items-center space-x-2">
+                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                         <span className="text-sm text-gray-600">On Hold</span>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               
+               <div>
+                 <h3 className="text-2xl font-bold text-black mb-4">
+                   Clear payment history
+                 </h3>
+                 <p className="text-gray-500 leading-relaxed">
+                   Still writing manual expenses? Our platform breaks down every expense you log down to the millisecond!
+                 </p>
+               </div>
+             </div>
+
+             {/* Feature 3: Multi-card Payments */}
+             <div className="space-y-6">
+               <div className="bg-gray-100 rounded-2xl p-6 h-80 flex items-center justify-center">
+                 <div className="relative">
+                   {/* Back Card (Brown) */}
+                   <div className="w-52 h-32 bg-gradient-to-br from-amber-800 to-amber-900 rounded-xl shadow-lg absolute transform -rotate-12 -translate-x-4 -translate-y-4">
+                     <div className="absolute bottom-4 left-4 text-white text-sm font-mono">
+                       2221 - 0057 - 4680 - 2089
+                     </div>
+                   </div>
+                   
+                   {/* Middle Card (Green) */}
+                   <div className="w-52 h-32 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg absolute transform -rotate-6 -translate-x-2 -translate-y-2">
+                     <div className="absolute top-4 right-4 text-white text-xs font-bold">
+                       VER
+                     </div>
+                     <div className="absolute bottom-4 left-4 text-white text-sm font-mono">
+                       6011 - 1111 - 1111 - 1117
+                     </div>
+                   </div>
+                   
+                   {/* Front Card (Blue Visa) */}
+                   <div className="w-52 h-32 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl relative">
+                     <div className="absolute top-4 right-4">
+                       <div className="text-white text-xs font-bold">
+                         VISA
+                       </div>
+                     </div>
+                     <div className="absolute bottom-4 left-4">
+                       <div className="text-white text-sm font-mono">
+                         1111 - 1111 - 1111 - 1111
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               
+               <div>
+                 <h3 className="text-2xl font-bold text-black mb-4">
+                   Use of multi-card payments
+                 </h3>
+                 <p className="text-gray-500 leading-relaxed">
+                   Have more than 1 bank account or credit/debit card? Our platform is already integrated with many banks around the world, for easier payments!
+                 </p>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
+
+       {/* Benefit 2 Section */}
+       <section id="benefit2" className="min-h-screen bg-gray-50 py-16 px-4">
+         <div className="max-w-6xl mx-auto">
+           {/* Header Section */}
+           <div className="text-center mb-16">
+             <div className="text-purple-600 text-sm font-medium tracking-wide mb-4">
+               WHY USE SPEND.IN
+             </div>
+             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+               Easy, Simple, Affordable
+             </h1>
+             <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+               Our platform helps your business in managing expenses. These are some of the 
+               reasons why you should use our platform in managing business finances.
+             </p>
+           </div>
+
+           {/* Content Section */}
+           <div className="grid lg:grid-cols-2 gap-12 items-start">
+             {/* Left Column - Features */}
+             <div className="space-y-8">
+               {/* Feature 1 */}
+               <div className="flex items-start space-x-4">
+                 <div className="flex-shrink-0">
+                   <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                     <CreditCard className="w-6 h-6 text-white" />
+                   </div>
+                 </div>
+                 <div>
+                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                     Automatic Invoice Payment
+                   </h3>
+                   <p className="text-gray-600 leading-relaxed">
+                     Automatic payments help you to arrange payments on a 
+                     certain date without doing it manually again.
+                   </p>
+                 </div>
+               </div>
+
+               {/* Feature 2 */}
+               <div className="flex items-start space-x-4">
+                 <div className="flex-shrink-0">
+                   <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                     <FileText className="w-6 h-6 text-white" />
+                   </div>
+                 </div>
+                 <div>
+                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                     Clear payment history
+                   </h3>
+                   <p className="text-gray-600 leading-relaxed">
+                     Clear payment history helps you to track your business 
+                     expenses on specific dates.
+                   </p>
+                 </div>
+               </div>
+
+               {/* Feature 3 */}
+               <div className="flex items-start space-x-4">
+                 <div className="flex-shrink-0">
+                   <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                     <Wallet className="w-6 h-6 text-white" />
+                   </div>
+                 </div>
+                 <div>
+                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                     Use of multi-card payments
+                   </h3>
+                   <p className="text-gray-600 leading-relaxed">
+                     Have more than one debit or credit card? Don't worry, we 
+                     support payments using more than one card.
+                   </p>
+                 </div>
+               </div>
+             </div>
+
+             {/* Right Column - Dashboard Preview */}
+             <div className="lg:pl-8">
+               {/* Transaction History Card */}
+               <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                 {/* Header */}
+                 <div className="px-6 py-4 border-b border-gray-100">
+                   <div className="flex items-center justify-between">
+                     <h2 className="text-lg font-semibold text-gray-900">
+                       Transaction History
+                     </h2>
+                     <div className="flex items-center space-x-12 text-sm text-gray-500">
+                       <div className="flex items-center space-x-1">
+                         <span>to</span>
+                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                         </svg>
+                       </div>
+                       <span>Amount</span>
+                     </div>
+                   </div>
+                 </div>
+
+                 {/* Transaction List */}
+                 <div className="divide-y divide-gray-100">
+                   {/* Transaction 1 - Highlighted avec document violet */}
+                   <div className="px-6 py-4 bg-purple-50">
+                     <div className="flex items-center justify-between">
+                       <div className="flex items-center space-x-4">
+                         {/* Document/Facture avec logo Spend.In */}
+                         <div className="relative">
+                           <div className="w-16 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg shadow-sm flex flex-col overflow-hidden">
+                             {/* Header du document */}
+                             <div className="h-4 bg-purple-500 flex items-center px-2">
+                               <div className="w-2 h-2 bg-white/60 rounded-full"></div>
+                             </div>
+                             {/* Contenu du document */}
+                             <div className="flex-1 bg-white/90 p-2 flex flex-col justify-center space-y-1">
+                               <div className="h-1 bg-gray-400 rounded w-full"></div>
+                               <div className="h-1 bg-gray-300 rounded w-3/4"></div>
+                               <div className="h-1 bg-gray-300 rounded w-1/2"></div>
+                               <div className="h-1 bg-gray-300 rounded w-2/3"></div>
+                             </div>
+                           </div>
+                           {/* Logo circulaire Spend.In en bas à droite */}
+                           <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center border-2 border-white">
+                             <span className="text-white text-xs font-bold">S</span>
+                           </div>
+                         </div>
+                         <div>
+                           <div className="font-semibold text-gray-900 text-base">Spend.In</div>
+                           <div className="text-sm text-gray-600">
+                             Advertising - Marketing, Promotion
+                           </div>
+                           <div className="text-xs text-gray-500 mt-1">
+                             Due Date: Sep 16th, 2022
+                           </div>
+                         </div>
+                       </div>
+                       <div className="text-right flex flex-col items-end space-y-1">
+                         <div className="flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-full border border-green-200">
+                           <Check className="w-3 h-3 mr-1" />
+                           <span className="text-xs font-medium">Verified</span>
+                         </div>
+                         <div className="text-sm text-gray-500 mt-2">101,2022</div>
+                         <div className="font-bold text-lg text-gray-900">$2,000</div>
+                       </div>
+                     </div>
+                   </div>
+
+                   {/* Transaction 2 - Adobe */}
+                   <div className="px-6 py-4">
+                     <div className="flex items-center justify-between">
+                       <div className="flex items-center space-x-4">
+                         <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                           <span className="text-white font-bold text-lg">A</span>
+                         </div>
+                         <div>
+                           <div className="font-semibold text-gray-900 text-base">Adobe</div>
+                           <div className="text-sm text-gray-600">License</div>
+                         </div>
+                       </div>
+                       <div className="text-right">
+                         <div className="text-sm text-gray-500">104,2022</div>
+                         <div className="font-bold text-lg text-gray-900">$2,000</div>
+                       </div>
+                     </div>
+                   </div>
+
+                   {/* Transaction 3 - Zoom */}
+                   <div className="px-6 py-4">
+                     <div className="flex items-center justify-between">
+                       <div className="flex items-center space-x-4">
+                         <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                           <span className="text-white font-bold text-lg">Z</span>
+                         </div>
+                         <div>
+                           <div className="font-semibold text-gray-900 text-base">Zoom</div>
+                           <div className="text-sm text-gray-600">Subscription</div>
+                         </div>
+                       </div>
+                       <div className="text-right">
+                         <div className="text-sm text-gray-500">106,2022</div>
+                         <div className="font-bold text-lg text-gray-900">$2,000</div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
+
+       {/* How it Works 1 Section */}
+       <section id="howitwork1" className="min-h-screen bg-gray-900 py-20 px-4">
+         <div className="max-w-6xl mx-auto">
+           {/* Header Section */}
+           <div className="text-center mb-16">
+             <div className="text-purple-500 text-sm font-medium tracking-wide mb-4">
+               HOW IT WORKS
+             </div>
+             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+               Few Easy Steps and Done
+             </h1>
+             <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+               In just few easy step, you are all set to manage your business finances.
+               <br />
+               Manage all expenses with Spend.In all in one place.
+             </p>
+           </div>
+
+           {/* Steps Section */}
+           <div className="grid md:grid-cols-3 gap-8 mb-16">
+             {/* Step 1 */}
+             <div className="text-center">
+               <div className="relative mb-6">
+                 {/* Step Number */}
+                 <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                   1
+                 </div>
+                 {/* Login Form Card */}
+                 <div className="bg-white rounded-2xl p-6 shadow-lg h-48">
+                   <div className="space-y-4">
+                     <div>
+                       <div className="text-left text-sm font-medium text-gray-700 mb-2">
+                         Username
+                       </div>
+                       <div className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-left">
+                         <span className="text-gray-600">your_user</span>
+                         <span className="animate-pulse">|</span>
+                       </div>
+                     </div>
+                     <div>
+                       <div className="text-left text-sm font-medium text-gray-700 mb-2">
+                         Password
+                       </div>
+                       <div className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-left">
+                         <span className="text-gray-800 text-lg tracking-wider">• • • • • • • • •</span>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <h3 className="text-xl font-semibold text-white mb-2">
+                 Register your
+                 <br />
+                 Spend.In account.
+               </h3>
+             </div>
+
+             {/* Step 2 */}
+             <div className="text-center">
+               <div className="relative mb-6">
+                 {/* Step Number */}
+                 <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                   2
+                 </div>
+                 {/* Expenses List Card */}
+                 <div className="bg-white rounded-2xl p-6 shadow-lg h-48">
+                   <div>
+                     <div className="text-left text-sm font-medium text-gray-700 mb-4">
+                       Expenses
+                     </div>
+                     <div className="space-y-3">
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded flex-1 mr-3"></div>
+                         <div className="w-4 h-4 bg-gray-300 rounded"></div>
+                       </div>
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded w-4/5 mr-3"></div>
+                         <div className="w-4 h-4 bg-gray-300 rounded"></div>
+                       </div>
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded w-3/5 mr-3"></div>
+                         <div className="w-4 h-4 bg-gray-300 rounded"></div>
+                       </div>
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded w-2/3 mr-3"></div>
+                         <div className="w-4 h-4 bg-gray-300 rounded"></div>
+                       </div>
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded w-1/2 mr-3"></div>
+                         <div className="w-4 h-4 bg-gray-300 rounded"></div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <h3 className="text-xl font-semibold text-white mb-2">
+                 Fill in the list of your
+                 <br />
+                 business expenses.
+               </h3>
+             </div>
+
+             {/* Step 3 */}
+             <div className="text-center">
+               <div className="relative mb-6">
+                 {/* Step Number */}
+                 <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
+                   3
+                 </div>
+                 {/* Done List Card */}
+                 <div className="bg-white rounded-2xl p-6 shadow-lg h-48">
+                   <div>
+                     <div className="text-left text-sm font-medium text-gray-700 mb-4">
+                       Completed Tasks
+                     </div>
+                     <div className="space-y-3">
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded flex-1 mr-3"></div>
+                         <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                           <Check className="w-3 h-3 text-white" />
+                         </div>
+                       </div>
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded w-4/5 mr-3"></div>
+                         <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                           <Check className="w-3 h-3 text-white" />
+                         </div>
+                       </div>
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded w-3/5 mr-3"></div>
+                         <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                           <Check className="w-3 h-3 text-white" />
+                         </div>
+                       </div>
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded w-2/3 mr-3"></div>
+                         <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                           <Check className="w-3 h-3 text-white" />
+                         </div>
+                       </div>
+                       <div className="flex items-center justify-between">
+                         <div className="h-2 bg-purple-200 rounded w-1/2 mr-3"></div>
+                         <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                           <Check className="w-3 h-3 text-white" />
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <h3 className="text-xl font-semibold text-white mb-2">
+                 Done, let's
+                 <br />
+                 continue the work.
+               </h3>
+             </div>
+           </div>
+
+           {/* CTA Buttons */}
+           <div className="text-center">
+             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+               <button className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-200 transform hover:scale-105">
+                 Get a Free Demo
+               </button>
+               <button className="text-gray-400 hover:text-white px-8 py-3 rounded-full font-semibold transition-colors duration-200">
+                 See Pricing
+               </button>
+             </div>
+           </div>
+         </div>
+       </section>
+
+       {/* How it Works 2 Section */}
+       <section id="howitwork2" className="min-h-screen bg-gray-900 py-20 px-4">
+         <div className="max-w-7xl mx-auto">
+           <div className="grid lg:grid-cols-2 gap-16 items-center">
+             {/* Left Column - Dashboard Preview */}
+             <div className="order-2 lg:order-1">
+               <div className="bg-gray-100 rounded-2xl shadow-2xl overflow-hidden">
+                 {/* Browser Header */}
+                 <div className="bg-gray-200 px-4 py-3 flex items-center space-x-2">
+                   <div className="flex space-x-2">
+                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                   </div>
+                 </div>
+
+                 {/* Dashboard Content */}
+                 <div className="bg-white">
+                   {/* Success Messages */}
+                   <div className="p-6 space-y-4">
+                     <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+                       <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                         <Check className="w-3 h-3 text-white" />
+                       </div>
+                       <span className="text-green-700 font-medium">Yeay! Your account has been registered.</span>
+                       <span className="text-gray-400 text-sm ml-auto">here</span>
+                     </div>
+
+                     <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+                       <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                         <Check className="w-3 h-3 text-white" />
+                       </div>
+                       <span className="text-green-700 font-medium">Your expenses has been saved.</span>
+                     </div>
+
+                     <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+                       <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                         <Check className="w-3 h-3 text-white" />
+                       </div>
+                       <span className="text-green-700 font-medium">Done, let's continue the work</span>
+                     </div>
+                   </div>
+
+                   {/* Main Dashboard Layout */}
+                   <div className="flex">
+                     {/* Sidebar */}
+                     <div className="w-1/3 bg-gray-50 p-4">
+                       <div className="space-y-2">
+                         <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100">
+                           <BarChart3 className="w-4 h-4 text-gray-600" />
+                           <span className="text-sm font-medium text-gray-700">Insight</span>
+                         </div>
+                         
+                         <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100">
+                           <Folder className="w-4 h-4 text-gray-600" />
+                           <span className="text-sm font-medium text-gray-700">Reimburse</span>
+                         </div>
+                         
+                         <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100">
+                           <Mail className="w-4 h-4 text-gray-600" />
+                           <span className="text-sm font-medium text-gray-700">Inbox</span>
+                         </div>
+                         
+                         <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100">
+                           <Users className="w-4 h-4 text-gray-600" />
+                           <span className="text-sm font-medium text-gray-700">People & Teams</span>
+                         </div>
+
+                         <div className="pt-4">
+                           <div className="text-xs text-gray-500 font-medium mb-2">Preferences</div>
+                           <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100">
+                             <Settings className="w-4 h-4 text-gray-600" />
+                             <span className="text-sm font-medium text-gray-700">Settings</span>
+                           </div>
+                           
+                           <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100">
+                             <HelpCircle className="w-4 h-4 text-gray-600" />
+                             <span className="text-sm font-medium text-gray-700">Help & Center</span>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+
+                     {/* Main Content */}
+                     <div className="flex-1 p-4">
+                       {/* Chart Section */}
+                       <div className="mb-6">
+                         <div className="bg-gray-100 rounded-lg p-4 h-32 relative">
+                           <div className="text-xs text-gray-500 mb-2">Expenses</div>
+                           <div className="text-sm font-semibold text-gray-700 bg-gray-800 text-white px-2 py-1 rounded text-center absolute top-2 right-2">
+                             $15,030
+                           </div>
+                           {/* Simple Bar Chart */}
+                           <div className="flex items-end justify-center space-x-2 h-16 mt-4">
+                             <div className="w-4 bg-purple-400 h-8 rounded-t"></div>
+                             <div className="w-4 bg-purple-500 h-12 rounded-t"></div>
+                             <div className="w-4 bg-purple-600 h-6 rounded-t"></div>
+                             <div className="w-4 bg-purple-500 h-14 rounded-t"></div>
+                             <div className="w-4 bg-purple-400 h-10 rounded-t"></div>
+                             <div className="w-4 bg-purple-500 h-16 rounded-t"></div>
+                           </div>
+                           {/* Chart Labels */}
+                           <div className="flex justify-center space-x-3 text-xs text-gray-500 mt-2">
+                             <span>Jan</span>
+                             <span>Feb</span>
+                             <span>Mar</span>
+                             <span>Apr</span>
+                             <span>Mei</span>
+                             <span>Jun</span>
+                           </div>
+                         </div>
+                       </div>
+
+                       {/* Income and Expenses Cards */}
+                       <div className="grid grid-cols-2 gap-4 mb-4">
+                         <div className="bg-gray-50 rounded-lg p-3">
+                           <div className="text-xs text-gray-500 mb-1">Total Income</div>
+                           <div className="font-bold text-lg">$50,530.00</div>
+                           <div className="text-xs text-gray-500">(USD)</div>
+                           <div className="text-xs text-green-600 mt-1">20% increase compared to last week</div>
+                         </div>
+                         <div className="bg-gray-50 rounded-lg p-3">
+                           <div className="text-xs text-gray-500 mb-1">Total Expenses</div>
+                           <div className="font-bold text-lg">$19,740.00</div>
+                           <div className="text-xs text-red-600 mt-1">10% decrease</div>
+                         </div>
+                       </div>
+
+                       {/* Transaction History */}
+                       <div className="text-sm font-medium text-gray-700">
+                         Transaction History
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+             {/* Right Column - Content */}
+             <div className="order-1 lg:order-2">
+               <div className="text-purple-500 text-sm font-medium tracking-wide mb-4">
+                 HOW IT WORKS
+               </div>
+               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                 Few Easy Steps and Done
+               </h1>
+               <p className="text-gray-400 text-lg mb-12 leading-relaxed">
+                 In just few easy step, you are all set to manage your business finances. Manage all expenses with Spend.In all in one place.
+               </p>
+
+               {/* Steps */}
+               <div className="space-y-8">
+                 {/* Step 1 */}
+                 <div className="flex items-center space-x-4">
+                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                     1
+                   </div>
+                   <div>
+                     <h3 className="text-xl font-semibold text-white">
+                       Register your Spend.In account.
+                     </h3>
+                   </div>
+                 </div>
+
+                 {/* Connector Line */}
+                 <div className="ml-6 w-0.5 h-6 bg-gray-700"></div>
+
+                 {/* Step 2 */}
+                 <div className="flex items-center space-x-4">
+                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                     2
+                   </div>
+                   <div>
+                     <h3 className="text-xl font-semibold text-white">
+                       Fill in the list of your business expenses.
+                     </h3>
+                   </div>
+                 </div>
+
+                 {/* Connector Line */}
+                 <div className="ml-6 w-0.5 h-6 bg-gray-700"></div>
+
+                 {/* Step 3 */}
+                 <div className="flex items-center space-x-4">
+                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-900 font-bold text-lg flex-shrink-0">
+                     3
+                   </div>
+                   <div>
+                     <h3 className="text-xl font-semibold text-white">
+                       Done, let's continue the work.
+                     </h3>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+               </section>
+
+                {/* Success Stories Sections */}
+        <div id="success1">
+          <SuccessStories1 />
         </div>
-      </main>
-    </div>
-  );
-};
+        <div id="success2">
+          <SuccessStories2 />
+        </div>
+
+         {/* Testimonials Section */}
+         <div id="testimonials">
+           <Testimonials />
+         </div>
+
+         {/* Pricing Section */}
+         <div id="pricing">
+           <Pricing />
+         </div>
+
+         {/* Call to Action Section */}
+         <div id="cta">
+           <CallToAction />
+         </div>
+
+         {/* Footer Section */}
+         <Footer />
+       </div>
+     );
+   };
 
 export default SpendInLanding;
