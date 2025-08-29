@@ -96,7 +96,7 @@ const SpendInLanding = () => {
                   </div>
                 )}
              </div>
-            <span className="hover:text-white transition-colors">Pricing</span>
+            <span className="hover:text-white transition-colors cursor-pointer" onClick={() => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })}>Pricing</span>
             <div className="flex items-center gap-1 hover:text-white transition-colors">
               <span>Company</span>
               <ChevronDown className="w-4 h-4" />
@@ -128,7 +128,7 @@ const SpendInLanding = () => {
             <button className="w-full sm:w-auto bg-[#6C5CE7] hover:bg-[#5b4ed1] text-white rounded-full px-6 md:px-8 py-3 font-medium shadow-md">
               Get a Free Demo
             </button>
-            <button className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white rounded-full border border-white/10 px-6 md:px-8 py-3">
+            <button className="w-full sm:w-auto bg-[#0b0d14] text-[#E2D6FF] rounded-full px-6 md:px-8 py-3 font-medium" onClick={() => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })}>
               See Pricing
             </button>
           </div>
@@ -1058,7 +1058,7 @@ const SpendInLanding = () => {
                <button className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-200 transform hover:scale-105">
                  Get a Free Demo
                </button>
-               <button className="text-gray-400 hover:text-white px-8 py-3 rounded-full font-semibold transition-colors duration-200">
+               <button className="text-gray-400 hover:text-white px-8 py-3 rounded-full font-semibold transition-colors duration-200" onClick={() => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })}>
                  See Pricing
                </button>
              </div>
