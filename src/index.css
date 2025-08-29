@@ -1,0 +1,28 @@
+/* Styles globaux du projet (sans Tailwind) */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Styles des liens supprimés pour éviter les conflits avec Tailwind */
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Supprimé: styles génériques de <button> qui écrasaient Tailwind */
+
+/* Styles des liens supprimés pour éviter les conflits avec Tailwind */
