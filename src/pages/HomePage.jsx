@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Bell, ChevronDown, TrendingUp, CreditCard, ArrowUpRight, DollarSign, Paperclip, Home, Activity, FileText, Package, Wallet, MoreHorizontal, ChevronLeft, ChevronRight, Check, BarChart3, Mail, Users, Settings, HelpCircle, Folder } from 'lucide-react';
+import { Paperclip, Search, Bell, ChevronDown, Home, TrendingUp, FileText, Package, Wallet, Check, BarChart3, Folder, Mail, Users, Settings, HelpCircle, CreditCard } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Import des composants

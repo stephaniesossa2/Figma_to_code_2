@@ -35,7 +35,7 @@ const TestimonialsSection = () => {
           
           {/* User Info */}
           <div className="flex items-center">
-            <img 
+            <img
               src="/images/testimonialperson1.png"
               alt="Jimmy Bartney"
               className="w-14 h-14 rounded-full mr-4 object-cover"
@@ -63,7 +63,7 @@ const TestimonialsSection = () => {
           
           {/* User Info */}
           <div className="flex items-center">
-            <img 
+            <img
               src="/images/testimonialperson2.png"
               alt="Natasha Romanoff"
               className="w-14 h-14 rounded-full mr-4 object-cover"
@@ -91,7 +91,7 @@ const TestimonialsSection = () => {
           
           {/* User Info */}
           <div className="flex items-center">
-            <img 
+            <img
               src="/images/testimonialperson3.png"
               alt="Moritika Kazuki"
               className="w-14 h-14 rounded-full mr-4 object-cover"
