@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Paperclip, Search, Bell, ChevronDown, Home, TrendingUp, FileText, Package, Wallet, Check, BarChart3, Folder, Mail, Users, Settings, HelpCircle, CreditCard } from 'lucide-react';
+import { Search, Bell, ChevronDown, TrendingUp, CreditCard, ArrowUpRight, DollarSign, Paperclip, Home, Activity, FileText, Package, Wallet, MoreHorizontal, ChevronLeft, ChevronRight, Check, BarChart3, Mail, Users, Settings, HelpCircle, Folder } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Import des composants
@@ -128,7 +128,7 @@ const SpendInLanding = () => {
             <button className="w-full sm:w-auto bg-[#6C5CE7] hover:bg-[#5b4ed1] text-white rounded-full px-6 md:px-8 py-3 font-medium shadow-md">
               Get a Free Demo
             </button>
-            <button className="w-full sm:w-auto bg-[#0b0d14] text-[#E2D6FF] rounded-full px-6 md:px-8 py-3 font-medium" onClick={() => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })}>
+            <button className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white rounded-full border border-white/10 px-6 md:px-8 py-3" onClick={() => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })}>
               See Pricing
             </button>
           </div>
